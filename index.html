@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Uma pergunta nada aleatória 💘</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff4e50, #f9d423);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+        }
+
+        .box {
+            background: rgba(0,0,0,0.3);
+            padding: 25px;
+            border-radius: 20px;
+            max-width: 380px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+        }
+
+        h1 {
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.4;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+        .next {
+            background: #ffffff;
+            color: #333;
+        }
+
+        #yes {
+            background: #2ecc71;
+            color: #fff;
+        }
+
+        #no {
+            background: #e74c3c;
+            color: #fff;
+            position: relative;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .heart {
+            font-size: 45px;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.25); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="box" id="step1">
+    <h1>Oi… 👀</h1>
+    <p>
+        Isso não é um vírus.<br>
+        Não é propaganda.<br>
+        E definitivamente não é coincidência 😅
+    </p>
+    <button class="next" onclick="next()">Continuar</button>
+</div>
+
+<div class="box hidden" id="step2">
+    <p>
+        A gente se conhece há tipo…<br>
+        <strong>3 semanas</strong> 😳<br><br>
+        E mesmo assim você já conseguiu bagunçar meu dia<br>
+        do melhor jeito possível.
+    </p>
+    <button class="next" onclick="next()">Continuar</button>
+</div>
+
+<div class="box hidden" id="step3">
+    <p>
+        Sério…<br>
+        uma loira,<br>
+        baixinha,<br>
+        linda,<br>
+        com esse sorriso perigoso 💥<br><br>
+        Era óbvio que isso não ia dar em nada simples.
+    </p>
+    <button class="next" onclick="next()">Continuar</button>
+</div>
+
+<div class="box hidden" id="step4">
+    <p>
+        Eu tentei fingir costume,<br>
+        tentei ir com calma,<br>
+        mas deu ruim…<br><br>
+        já tô gostando de você mais do que planejei 🫠
+    </p>
+    <button class="next" onclick="next()">Ok…</button>
+</div>
+
+<div class="box hidden" id="step5">
+    <h1>Então vamos ao ponto 💘</h1>
+    <p>
+        Topa transformar essas 3 semanas<br>
+        no começo de algo ainda melhor?
+    </p>
+    <button id="yes" onclick="accept()">SIM 💖</button>
+    <button id="no" onmouseover="escape()">Não 😐</button>
+</div>
+
+<div class="box hidden" id="final">
+    <div class="heart">💖</div>
+    <h1>Agora é oficial!</h1>
+    <p>
+        Prometo carinho,<br>
+        risadas,<br>
+        parceria,<br>
+        e te olhar como se você fosse minha pessoa favorita…<br>
+        porque já é 💕<br><br>
+        Vem ser minha namorada 🥰
+    </p>
+</div>
+
+<script>
+    let step = 1;
+
+    function next() {
+        document.getElementById("step" + step).classList.add("hidden");
+        step++;
+        document.getElementById("step" + step).classList.remove("hidden");
+    }
+
+    function escape() {
+        const btn = document.getElementById("no");
+        const x = Math.random() * 200 - 100;
+        const y = Math.random() * 200 - 100;
+        btn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    function accept() {
+        document.getElementById("step5").classList.add("hidden");
+        document.getElementById("final").classList.remove("hidden");
+    }
+</script>
+
+</body>
+</html>
